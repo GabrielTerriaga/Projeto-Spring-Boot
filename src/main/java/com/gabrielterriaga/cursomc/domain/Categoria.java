@@ -2,10 +2,17 @@ package com.gabrielterriaga.cursomc.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity //para informar ao compilador que é uma classe com persistencia JPA, trata dados com o DB
 public class Categoria implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Identifica o ID como Primarykey
 	private Integer id;
 	private String nome;
 	
