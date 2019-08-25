@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity //para informar ao compilador que é uma classe com persistencia JPA, trata dados com o DB
 public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +21,7 @@ public class Categoria implements Serializable {
 	private Integer id;
 	private String nome;
 	
+	@JsonManagedReference //PARA REFERENCIAR DE ONDE VEM OS OBJ
 	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	
